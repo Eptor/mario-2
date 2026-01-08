@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://br4ytvksgyukd" path="res://scenes/block/block.gd" id="1_vpped"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c27ow"]
-size = Vector2(16, 3)
+size = Vector2(10, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpped"]
 size = Vector2(16, 13)

@@ -13,7 +13,7 @@ scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1120, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="HighMountain"]
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_anb5y")
 
 [node name="Mountain" type="Parallax2D" parent="."]
@@ -21,7 +21,7 @@ scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1120, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Mountain"]
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_boccm")
 
 [node name="NearMountain" type="Parallax2D" parent="."]
@@ -29,7 +29,7 @@ scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(1120, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="NearMountain"]
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("3_pvmd8")
 
 [node name="Field" type="Parallax2D" parent="."]
@@ -37,7 +37,7 @@ scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(1120, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Field"]
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("4_yff2q")
 
 [node name="Grass" type="Parallax2D" parent="."]
@@ -45,5 +45,5 @@ scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(1120, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Grass"]
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("5_3sjrd")

@@ -21,6 +21,10 @@ SoundsManager="*res://singletons/SoundsManager.gd"
 SignalManager="*res://singletons/SignalManager.gd"
 GameManager="*res://singletons/GameManager.gd"
 
+[display]
+
+window/size/viewport_height=600
+
 [input]
 
 move_right={
