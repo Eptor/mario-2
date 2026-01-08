@@ -18,3 +18,4 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		tween.set_loops(1)
 		tween.tween_property(sprite, "scale", Vector2(1.5, 1.5), 0.25)
 		tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.25)
+		tween.tween_property(sprite, "self_modulate",Color(0.427, 0.235, 0.125, 0.773),0.5)
