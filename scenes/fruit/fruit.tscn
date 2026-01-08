@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://wqwkc4b2paf8" path="res://scenes/fruit/fruit.gd" id="1_luid3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6dk3"]
-radius = 12.0
+radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_luid3"]
 atlas = ExtResource("1_8dwgx")
@@ -144,7 +144,7 @@ shape = SubResource("CircleShape2D_f6dk3")
 sprite_frames = SubResource("SpriteFrames_rmoc4")
 animation = &"IDLE"
 autoplay = "IDLE"
-frame_progress = 0.20920883
+frame_progress = 0.7060173
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
