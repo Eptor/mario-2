@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnp31wmon83qd"]
+
+[ext_resource type="Texture2D" uid="uid://80fxxah1gl0" path="res://assets/sprites/golden_block.png" id="1_c27ow"]
+[ext_resource type="Script" uid="uid://br4ytvksgyukd" path="res://scenes/block/block.gd" id="1_vpped"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c27ow"]
+size = Vector2(16, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpped"]
+size = Vector2(16, 13)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_vpped")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c27ow")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Bottom" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_c27ow")
+debug_color = Color(0.99999994, 0.011982246, 0.05126854, 0.41960785)
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_vpped")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
