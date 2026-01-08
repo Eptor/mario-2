@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://bnyrmc76fueor"]
+[gd_scene load_steps=16 format=4 uid="uid://bnyrmc76fueor"]
 
 [ext_resource type="PackedScene" uid="uid://27m58xn3rwh3" path="res://scenes/player/player.tscn" id="1_alwyk"]
+[ext_resource type="Script" uid="uid://7md31ofqfnws" path="res://scenes/test_level/test_level.gd" id="1_mfp2k"]
 [ext_resource type="PackedScene" uid="uid://cebi34elwpbud" path="res://scenes/hud/hud.tscn" id="3_vxsof"]
 [ext_resource type="PackedScene" uid="uid://i4ywmfo8msj8" path="res://scenes/player_camera/player_camera.tscn" id="4_yetkn"]
 [ext_resource type="PackedScene" uid="uid://c3a3fe7vpi664" path="res://scenes/backgrounds/world1_1/world1_1.tscn" id="5_q0l7r"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cnp31wmon83qd" path="res://scenes/block/block.tscn" id="8_ninfq"]
 [ext_resource type="PackedScene" uid="uid://dn8onud2h8e3o" path="res://scenes/game_over/game_over.tscn" id="9_4ck26"]
 [ext_resource type="PackedScene" uid="uid://ba81swc86xgfc" path="res://scenes/pause/pause.tscn" id="10_eqec7"]
+[ext_resource type="PackedScene" uid="uid://bb342rp2d6fy8" path="res://scenes/victory/victory.tscn" id="12_su4wh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ninfq"]
 texture = ExtResource("7_oeshv")
@@ -205,6 +207,7 @@ sources/0 = SubResource("TileSetAtlasSource_ninfq")
 size = Vector2(16, 336)
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource("1_mfp2k")
 
 [node name="World1_1" parent="." instance=ExtResource("5_q0l7r")]
 position = Vector2(558, 316)
@@ -328,6 +331,7 @@ position = Vector2(6624, 584)
 position = Vector2(6704, 584)
 
 [node name="Goal" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2(7576, 408)
@@ -340,3 +344,7 @@ position = Vector2(-32, 776)
 [node name="GameOver" parent="." instance=ExtResource("9_4ck26")]
 
 [node name="Pause" parent="." instance=ExtResource("10_eqec7")]
+
+[node name="Victory" parent="." instance=ExtResource("12_su4wh")]
+
+[connection signal="area_entered" from="Goal" to="." method="_on_goal_area_entered"]

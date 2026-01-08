@@ -1,3 +1,105 @@
-[gd_scene format=3 uid="uid://etax066pwh3y"]
+[gd_scene load_steps=8 format=3 uid="uid://etax066pwh3y"]
+
+[ext_resource type="Script" uid="uid://ba0ihgnj8bjrd" path="res://scenes/credits/credits.gd" id="1_8ggla"]
+[ext_resource type="FontFile" uid="uid://d0l8bsfhw1fih" path="res://assets/fonts/SuperMario256.ttf" id="1_8n0nl"]
+[ext_resource type="Texture2D" uid="uid://cpmwahnk2wt42" path="res://assets/background/credits.png" id="1_c8xcy"]
+[ext_resource type="Texture2D" uid="uid://djos06flogqhe" path="res://assets/buttons/buttonIn.png" id="1_dr3ri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8xcy"]
+font = ExtResource("1_8n0nl")
+font_size = 50
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ggla"]
+font = ExtResource("1_8n0nl")
+font_size = 50
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8n0nl"]
+font = ExtResource("1_8n0nl")
+font_size = 32
 
 [node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_8ggla")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+self_modulate = Color(1, 1, 1, 0.65882355)
+layout_mode = 2
+texture = ExtResource("1_c8xcy")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 63.5
+offset_top = 8.0
+offset_right = 1088.5
+offset_bottom = 122.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Jonatha Axel Granados Hernández"
+label_settings = SubResource("LabelSettings_c8xcy")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.5
+offset_top = -61.0
+offset_right = 512.5
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Hector David Espinoza Rodriguez"
+label_settings = SubResource("LabelSettings_8ggla")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("1_dr3ri")
+
+[node name="Label" type="Label" parent="HBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -16.0
+offset_right = 66.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_8n0nl")
+
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

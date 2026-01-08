@@ -1,3 +1,100 @@
-[gd_scene format=3 uid="uid://bb342rp2d6fy8"]
+[gd_scene load_steps=8 format=3 uid="uid://bb342rp2d6fy8"]
+
+[ext_resource type="LabelSettings" uid="uid://dm1bn61ray4b3" path="res://scenes/game_over/game_over.tres" id="1_6tedd"]
+[ext_resource type="Script" uid="uid://dajgtami1bwr4" path="res://scenes/victory/victory.gd" id="1_sd6rc"]
+[ext_resource type="Texture2D" uid="uid://djos06flogqhe" path="res://assets/buttons/buttonIn.png" id="2_72nab"]
+[ext_resource type="FontFile" uid="uid://d0l8bsfhw1fih" path="res://assets/fonts/SuperMario256.ttf" id="3_sd6rc"]
+[ext_resource type="Texture2D" uid="uid://b80ih2t1o5uqy" path="res://assets/buttons/buttonOut.png" id="3_u87pk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cb2ca"]
+font = ExtResource("3_sd6rc")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gtdts"]
+font = ExtResource("3_sd6rc")
+font_size = 32
 
 [node name="Victory" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_sd6rc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 1, 0.24313726, 0.49803922)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -532.5
+offset_top = 50.0
+offset_right = 532.5
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "congratulations!"
+label_settings = ExtResource("1_6tedd")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Main" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_72nab")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -16.0
+offset_right = 105.5
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"
+label_settings = SubResource("LabelSettings_cb2ca")
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("3_u87pk")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_gtdts")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Main" to="." method="_on_main_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
