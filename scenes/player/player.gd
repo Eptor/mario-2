@@ -67,22 +67,17 @@ func set_state(new_state: PLAYER_STATES):
 		match current_state:
 			PLAYER_STATES.IDLE: 
 				anim_player.play("idle")
-				print("Quieto")
 			PLAYER_STATES.RUN:
 				anim_player.play("run")
-				print("Corriendo")
 			PLAYER_STATES.JUMP:
 				anim_player.play("jump")
 				SoundsManager.play_sound(audio_player, SoundsManager.PLAYER_SOUND_JUMP)
-				print("Salto")
 			PLAYER_STATES.FALL:
 				anim_player.play("fall")
 				jump_hitbox_collision.disabled = false
-				print("Cayendo")
 			PLAYER_STATES.HURT:
 				anim_player.play("hurt")
 				SoundsManager.play_sound(audio_player, SoundsManager.PLAYER_SOUND_HURT)
-				print("Con dano")
 	else:
 		return
 	
@@ -101,7 +96,6 @@ func apply_hit():
 	tween.tween_property(sprite, "self_modulate",Color(1,1,1,1),0.5)
 
 func _on_invincible_timeout() -> void:
-	print("Control recuperado")
 	set_state(PLAYER_STATES.IDLE)
 	velocity.y = 0
 

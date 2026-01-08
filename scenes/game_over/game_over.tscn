@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn8onud2h8e3o"]
+
+[ext_resource type="Script" uid="uid://daes41lg6ieyp" path="res://scenes/game_over/game_over.gd" id="1_vtso4"]
+[ext_resource type="LabelSettings" uid="uid://dm1bn61ray4b3" path="res://scenes/game_over/game_over.tres" id="2_p1tbv"]
+[ext_resource type="Texture2D" uid="uid://ob2ywm4e7kpj" path="res://assets/buttons/buttonCommon.png" id="2_sseyc"]
+[ext_resource type="Texture2D" uid="uid://b80ih2t1o5uqy" path="res://assets/buttons/buttonOut.png" id="3_anb0t"]
+[ext_resource type="FontFile" uid="uid://dq6y1iesnwkk" path="res://assets/fonts/ButtonText.tres" id="4_iqjl0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mpp1"]
+font = ExtResource("4_iqjl0")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbth1"]
+font = ExtResource("4_iqjl0")
+font_size = 32
+
+[node name="GameOver" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_vtso4")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.48235294, 0.45882353, 1, 0.3647059)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -226.5
+offset_top = 50.0
+offset_right = 226.5
+offset_bottom = 121.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+text = "GAME OVER"
+label_settings = ExtResource("2_p1tbv")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Main menu" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_sseyc")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -11.5
+offset_right = 44.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"
+label_settings = SubResource("LabelSettings_3mpp1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_anb0t")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_tbth1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Main menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

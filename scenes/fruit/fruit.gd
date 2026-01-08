@@ -8,7 +8,6 @@ extends Area2D
 const SCORE: int = 5
 
 func _on_area_entered(area: Area2D) -> void:
-	print("Fruta tomada")
 	SignalManager.on_bonus_grabbed.emit(SCORE)
 	sprite_2d.visible = false
 	particles.emitting = true

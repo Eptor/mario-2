@@ -17,5 +17,5 @@ func on_score_changed(score: int):
 func on_lives_changed(lives: int):
 	for idx in range(heart_array.size()):
 		heart_array[idx].visible = idx < lives
-	print(lives)
-		
+	if lives == 0:
+		SignalManager.on_player_defeated.emit()

@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=3 uid="uid://ba81swc86xgfc"]
+
+[ext_resource type="LabelSettings" uid="uid://dm1bn61ray4b3" path="res://scenes/game_over/game_over.tres" id="1_2vals"]
+[ext_resource type="Script" uid="uid://cb8xyf24vce" path="res://scenes/pause/pause.gd" id="1_ovlnc"]
+[ext_resource type="FontFile" uid="uid://d0l8bsfhw1fih" path="res://assets/fonts/SuperMario256.ttf" id="2_6npj3"]
+[ext_resource type="Texture2D" uid="uid://b80ih2t1o5uqy" path="res://assets/buttons/buttonOut.png" id="2_pb4nb"]
+[ext_resource type="Texture2D" uid="uid://ob2ywm4e7kpj" path="res://assets/buttons/buttonCommon.png" id="3_uytle"]
+[ext_resource type="Texture2D" uid="uid://djos06flogqhe" path="res://assets/buttons/buttonIn.png" id="5_irh77"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_irh77"]
+font = ExtResource("2_6npj3")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0rk1"]
+font = ExtResource("2_6npj3")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_pb4nb"]
+font = ExtResource("2_6npj3")
+font_size = 32
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_ovlnc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 30.0
+offset_right = 54.0
+offset_bottom = 70.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Pause"
+label_settings = ExtResource("1_2vals")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_uytle")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_irh77")
+
+[node name="MainMenu" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_irh77")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"
+label_settings = SubResource("LabelSettings_k0rk1")
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_pb4nb")
+
+[node name="Quit" type="Label" parent="MarginContainer/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -16.0
+offset_right = 42.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_pb4nb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

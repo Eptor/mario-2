@@ -9,7 +9,7 @@ var punched: bool = false
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if not punched:
-		print("Fruta generada")
+		#print("Fruta generada")
 		var fruit = FRUIT_SCENE.instantiate()
 		fruit.position.y -= 15
 		add_child(fruit)
