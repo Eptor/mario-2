@@ -4,7 +4,7 @@ class_name Player
 
 enum PLAYER_STATES {IDLE, JUMP, RUN, FALL, HURT}
 const MOVEMENT_SPEED: float = 160.0
-const JUMP_SPEED: float = -450.0
+const JUMP_SPEED: float = -550.0
 const GRAVITY: float = 1000.0
 const MAX_FALL_SPEED: float = GRAVITY * 3
 const HURT_JUMP_SPEED: float = -100.0

@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 #Constantes de Movimiento
 const GRAVITY: float = 1000.0 
-const MOVEMENT_SPEED: float = 180.0
+const MOVEMENT_SPEED: float = 720.0
 
 enum FACING_DIRECTION {LEFT = -1, RIGHT = 1}
 var facing: FACING_DIRECTION = FACING_DIRECTION.LEFT

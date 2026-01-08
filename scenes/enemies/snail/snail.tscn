@@ -130,11 +130,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsb54"]
-size = Vector2(55, 4)
+size = Vector2(55, 5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2aa8"]
-radius = 16.0
-height = 80.0
+radius = 19.0
+height = 76.0
 
 [node name="Snail" type="CharacterBody2D"]
 collision_layer = 2
@@ -144,13 +144,11 @@ script = ExtResource("1_urb42")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tc05l")
-animation = &"destroy"
+animation = &"walk"
 autoplay = "walk"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 19)
+position = Vector2(4, 19.5)
 shape = SubResource("RectangleShape2D_rsb54")
 
 [node name="FloorDetection" type="RayCast2D" parent="."]
